@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta name="description" content="ini adalah aplikasi dari pengimplementasian algoritma K-Nearest Neighbors">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        {% if title %}
+        <title>{{ title }} - microblog</title>
+        {% else %}
+        <title>microblog</title>
+        {% endif %}
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
+    <body>
+        {% block content %}
+            <div class="container">
+                <h1 class="text-center">Input Data Penerbangan</h1>
+                <form class="text-center card" action="" method='POST' name="prediction_form">
+                    {{ form.hidden_tag() }}
+                    <p>
+                        {{ form.Airline.label }}<br>
+                        {{ form.Airline() }}
+                    </p>
+                    <p>
+                        {{ form.Flight.label }}<br>
+                        {{ form.Flight(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.AirportTo.label }}<br>
+                        {{ form.AirportTo() }}
+                    </p>
+                    <p>
+                        {{ form.Time.label }}<br>
+                        {{ form.Time(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.Length.label }}<br>
+                        {{ form.Length(size=32) }}
+                    </p>
+                    <p>{{ form.submit() }}</p>
+                </form>
+            
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <p class="text-center"> {{ messages }} </p>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <br><br>
+            <div class="container">
+                    <div class="card">
+                        <p>{{ performance[0] }}</p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </div>
+            </div>
+        {% endblock %}
+
+    </body>
+</html>
